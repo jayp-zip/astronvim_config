@@ -291,10 +291,9 @@ return {
     end,
   },
   {
-    -- todo! asdaa
+    -- todo: asdaa
     -- todo!() asdas
     -- FIXME: asdda
-    -- FIXME! asda
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
@@ -311,12 +310,12 @@ return {
         },
         merge_keywords = false,
         highlight = {
-          comments_only = false,
-          pattern = [[.*<(KEYWORDS)\s*([:\!])]],
+          comments_only = true,
+          pattern = [[.*<(KEYWORDS)\s*:]],
         },
         search = {
           command = "rg",
-          pattern = [[\b(KEYWORDS)([:!])]],
+          pattern = [[\b(KEYWORDS):]],
         },
       }
     end,
@@ -333,27 +332,29 @@ return {
       local codelldb_path = package_path .. "/codelldb"
       local liblldb_path = package_path .. "/extension/lldb/lib/liblldb"
       local server = require("astronvim.utils.lsp").config "rust_analyzer"
-
-      server = vim.tbl_deep_extend("force", server, {
+      local custom_server = {
         on_attach = function(client, bufnr) require("astronvim.utils.lsp").on_attach(client, bufnr) end,
         settings = {
           ["rust-analyzer"] = {
+            cargo = {
+              extraEnv = { RUSTFLAGS = "-Wclippy::pedantic -Wclippy::nursery -Wclippy::unwrap_used" },
+            },
+            checkOnSave = true,
             check = {
               command = "clippy",
             },
             procMacro = {
               enable = true,
+              ignored = {},
+              attributes = {
+                enable = true,
+              },
             },
-            -- cargo = {
-            --   loadOutDirsFromCheck = true,
-            -- },
-            -- assist = {
-            --   importGranularity = "module",
-            --   importPrefix = "by_self",
-            -- },
           },
         },
-      })
+      }
+
+      server = vim.tbl_deep_extend("force", server, custom_server)
 
       rt.setup {
         tools = {

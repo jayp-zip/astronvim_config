@@ -7,18 +7,13 @@ return {
   { import = "astrocommunity.pack.toml" },
 
   -- color
-  { import = "astrocommunity.color.twilight-nvim" },
+  -- { import = "astrocommunity.color.twilight-nvim" },
   -- { import = "astrocommunity.color.ccc-nvim" },
 
   -- colorschemes
-  { import = "astrocommunity.colorscheme.catppuccin" },
-  { import = "astrocommunity.colorscheme.everforest" },
-  { import = "astrocommunity.colorscheme.gruvbox" },
-  { import = "astrocommunity.colorscheme.kanagawa" },
-  { import = "astrocommunity.colorscheme.mini-base16" },
-  { import = "astrocommunity.colorscheme.nightfox" },
-  { import = "astrocommunity.colorscheme.onigiri" },
-  { import = "astrocommunity.colorscheme.oxocarbon" },
-  { import = "astrocommunity.colorscheme.rose-pine" },
-  { import = "astrocommunity.colorscheme.tokyonight" },
+  { import = "astrocommunity.colorscheme.kanagawa-nvim" },
+  { import = "astrocommunity.colorscheme.vscode-nvim" },
+  { import = "astrocommunity.colorscheme.github-nvim-theme" },
+  { import = "astrocommunity.colorscheme.oxocarbon-nvim" },
+  { import = "astrocommunity.colorscheme.dracula-nvim" },
 }
