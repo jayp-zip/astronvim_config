@@ -5,7 +5,15 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = { "lua_ls", "pyright", "ruff_lsp", "taplo", "rust_analyzer", "gopls" },
+      ensure_installed = {
+        "lua_ls",
+        "pyright",
+        "ruff_lsp",
+        "taplo",
+        "rust_analyzer",
+        "gopls",
+        "prismals",
+      },
     },
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources

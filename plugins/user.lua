@@ -337,7 +337,10 @@ return {
         settings = {
           ["rust-analyzer"] = {
             cargo = {
-              extraEnv = { RUSTFLAGS = "-Wclippy::pedantic -Wclippy::nursery -Wclippy::unwrap_used" },
+              extraEnv = {
+                RUSTFLAGS =
+                "-Wclippy::pedantic -Wclippy::nursery -Wclippy::unwrap_used -Aclippy::module_name_repetitions",
+              },
             },
             checkOnSave = true,
             check = {
